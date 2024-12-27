@@ -30,7 +30,6 @@
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
-    "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "rollup": "^4.29.1",
     "rollup-plugin-import-css": "^3.5.8",
