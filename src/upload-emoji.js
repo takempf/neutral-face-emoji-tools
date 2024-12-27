@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import axios from 'axios';
 import { ConcurrencyManager } from 'axios-concurrency';
 import uuid from 'uuid';
@@ -40,7 +39,7 @@ export default function uploadEmoji (file, callback = NO_OP) {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then((response) => {
-    const error = _.get(response, 'data.error');
+    const error = response?.data?.error;
     callback(error, response);
   }).catch((error) => {
     callback(error, null);
