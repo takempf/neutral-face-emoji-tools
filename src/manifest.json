@@ -12,6 +12,10 @@
   "icons": {
     "128": "images/icon_128.png"
   },
-  "manifest_version": 2,
-  "web_accessible_resources": ["content.js", "images/icon_128.png"]
+  "manifest_version": 3,
+  "web_accessible_resources": [{
+    "resources": ["content.js", "images/icon_128.png"],
+    "matches": ["*://*.slack.com/*"],
+    "extension_ids": []
+  }]
 }
