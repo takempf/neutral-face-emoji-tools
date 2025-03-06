@@ -2,7 +2,7 @@ import './styles/content.css';
 
 import App from './components/app.svelte';
 
-const ELEMENT_TO_INSERT_BEFORE_SELECTOR = '.p-customize_emoji_wrapper';
+const ELEMENT_TO_INSERT_BEFORE_SELECTOR = '[class^="p-customize_emoji_wrapper"]';
 
 function elementIsReady (selector) {
   return new Promise((resolve) => {
