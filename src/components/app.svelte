@@ -6,7 +6,8 @@
 
   import packageJson from '@@/package.json';
 
-  import neutralFaceIcon from '@/assets/neutral_face.png';
+  import neutralFaceIcon from '@/assets/icon.png';
+  import TKSvg from '@/assets/tk.svg';
 
   let uploads = [];
   let uploadsStatusById = {};
@@ -114,7 +115,16 @@
       <Upload {upload} status={uploadsStatusById[upload.id]} />
     {/each}
   </ul>
-  <var class="version-number">{packageJson.version}</var>
+  <div class="footer">
+    <a
+      class="kempf-link"
+      href="https://kempf.dev/?utm_source=nfet&utm_medium=extension&utm_campaign=extensions&utm_content=footer"
+      target="_blank">
+      <span>Crafted by</span>
+      <img class="tk-logo" src={TKSvg} alt="kempf.dev" />
+    </a>
+    <var class="version-number">v{packageJson.version}</var>
+  </div>
 </div>
 
 <style>
@@ -132,6 +142,8 @@
 
     border: var(--color-slack-border) 1px solid;
     border-left: var(--color-neutral-face-emoji-tools) 3px solid;
+    box-shadow: var(--dt_static_shadow-md); /* slack css var */
+    border-radius: var(--dt_static_radius-base); /* slack css var */
     margin: 0 0 25px 0;
     padding: 25px;
     background: white;
@@ -156,13 +168,36 @@
     font-size: 0.9rem;
   }
 
+  .footer {
+    font-size: 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: -1em;
+
+    a {
+      color: black;
+      opacity: 0.5;
+      transition: opacity 250ms;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+
+    .tk-logo {
+      height: 0.75em;
+    }
+  }
+
+  .kempf-link {
+    display: flex;
+    gap: 0.25em;
+    align-items: center;
+  }
+
   .version-number {
     font-style: normal;
-    font-size: 0.65rem;
-    line-height: 1;
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0.5rem;
     opacity: 0.5;
   }
 </style>
