@@ -34,3 +34,7 @@ dist
 
 # OSX
 .DS_Store
+
+# WXT
+.wxt
+.output
