@@ -5,6 +5,21 @@
   const filePreview = window.URL.createObjectURL(upload.file);
 </script>
 
+<li
+  class="upload"
+  class:uploading={status.type === 'uploading'}
+  class:error={status.type === 'error'}
+  class:success={status.type === 'success'}>
+  <img class="preview" src={filePreview} alt="" />
+  <span class="filename">{upload.file.name}</span>
+  <span class="status">
+    <i class="icon uploading ts_icon ts_icon_spinner"></i>
+    <i class="icon error ts_icon ts_icon_warning"></i>
+    <i class="icon success ts_icon ts_icon_check_circle_o"></i>
+    <span class="text">{status.message}</span>
+  </span>
+</li>
+
 <style>
   .upload {
     display: flex;
@@ -69,18 +84,3 @@
     color: var(--color-slack-success);
   }
 </style>
-
-<li
-  class="upload"
-  class:uploading={status.type === 'uploading'}
-  class:error={status.type === 'error'}
-  class:success={status.type === 'success'}>
-  <img class="preview" src={filePreview} alt="" />
-  <span class="filename">{upload.file.name}</span>
-  <span class="status">
-    <i class="icon uploading ts_icon ts_icon_spinner"></i>
-    <i class="icon error ts_icon ts_icon_warning"></i>
-    <i class="icon success ts_icon ts_icon_check_circle_o"></i>
-    <span class="text">{status.message}</span>
-  </span>
-</li>

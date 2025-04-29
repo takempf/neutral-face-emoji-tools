@@ -6,7 +6,7 @@
 
   let isOverDropZone = false;
 
-  async function handleDrop (event) {
+  async function handleDrop(event) {
     event.preventDefault();
     isOverDropZone = false;
 
@@ -14,21 +14,42 @@
     dispatch('filesadded', files);
   }
 
-  async function handleFileChange (event) {
+  async function handleFileChange(event) {
     event.preventDefault();
     const files = await fromEvent(event);
     dispatch('filesadded', files);
   }
 
-  function handleDragOver (event) {
+  function handleDragOver(event) {
     event.preventDefault();
     isOverDropZone = true;
   }
 
-  function handleDragLeave () {
+  function handleDragLeave() {
     isOverDropZone = false;
   }
 </script>
+
+<div
+  class="dropzone"
+  class:over={isOverDropZone}
+  role="button"
+  tabindex="0"
+  on:drop={handleDrop}
+  on:dragover={handleDragOver}
+  on:dragleave={handleDragLeave}>
+  <div class="dropzone__content input_note">
+    <strong>Drop images here</strong> or click to open a file dialog
+  </div>
+  <input
+    class="file-input"
+    type="file"
+    webkitdirectory
+    directory
+    multiple
+    accept="image/*;capture=camera"
+    on:change={handleFileChange} />
+</div>
 
 <style>
   .dropzone {
@@ -43,7 +64,9 @@
     border: var(--color-dropzone-border) 3px dashed;
     border-radius: 5px;
     background: var(--color-dropzone-bg);
-    transition: background 450ms, border-color 450ms;
+    transition:
+      background 450ms,
+      border-color 450ms;
   }
 
   .dropzone.over,
@@ -67,21 +90,3 @@
     cursor: pointer;
   }
 </style>
-
-<div
-  class="dropzone"
-  class:over={isOverDropZone}
-  on:drop={handleDrop}
-  on:dragover={handleDragOver}
-  on:dragleave={handleDragLeave}>
-  <div class="dropzone__content input_note">
-    <strong>Drop images here</strong> or click to open a file dialog
-  </div>
-  <input
-    class="file-input"
-    type="file"
-    webkitdirectory
-    directory
-    multiple
-    on:change={handleFileChange} />
-</div>
