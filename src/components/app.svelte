@@ -116,10 +116,7 @@
     {/each}
   </ul>
   <div class="footer">
-    <a
-      class="kempf-link"
-      href="https://kempf.dev/?utm_source=nfet&utm_medium=extension&utm_campaign=extensions&utm_content=footer"
-      target="_blank">
+    <a class="kempf-link" href="https://kempf.dev/#emoji-tools" target="_blank">
       <span>Crafted by</span>
       <img class="tk-logo" src={TKSvg} alt="kempf.dev" />
     </a>
