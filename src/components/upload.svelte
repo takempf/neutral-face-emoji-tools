@@ -48,11 +48,11 @@
     justify-content: center;
     align-items: center;
     color: var(--color-slack-info);
-    font-family: Consolas, monospace;
   }
 
   .status .icon {
     display: none;
+    margin-top: -0.25em;
     margin-right: 0.25em;
   }
 

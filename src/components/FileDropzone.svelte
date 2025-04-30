@@ -1,6 +1,6 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-  import { fromEvent } from "file-selector";
+  import { createEventDispatcher } from 'svelte';
+  import { fromEvent } from 'file-selector';
 
   const dispatch = createEventDispatcher();
 
@@ -11,13 +11,13 @@
     isOverDropZone = false;
 
     const files = await fromEvent(event);
-    dispatch("filesadded", files);
+    dispatch('filesadded', files);
   }
 
   async function handleFileChange(event) {
     event.preventDefault();
     const files = await fromEvent(event);
-    dispatch("filesadded", files);
+    dispatch('filesadded', files);
   }
 
   function handleDragOver(event) {
@@ -37,8 +37,7 @@
   tabindex="0"
   on:drop={handleDrop}
   on:dragover={handleDragOver}
-  on:dragleave={handleDragLeave}
->
+  on:dragleave={handleDragLeave}>
   <div class="dropzone__content input_note">
     <strong>Drop images here</strong> or click to open a file dialog
   </div>
@@ -47,8 +46,7 @@
     type="file"
     multiple
     accept="image/*;capture=camera"
-    on:change={handleFileChange}
-  />
+    on:change={handleFileChange} />
 </div>
 
 <style>
@@ -58,7 +56,6 @@
     justify-content: center;
     text-align: center;
     position: relative;
-    margin: 0 0 10px 0;
     width: 100%;
     height: 150px;
     border: var(--color-dropzone-border) 3px dashed;

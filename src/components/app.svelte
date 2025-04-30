@@ -99,7 +99,7 @@
 
 <div class="neutral-face-emoji-tools">
   <h4 class="heading">
-    <img class="icon heading" src={neutralFaceIcon} alt="" />
+    <img class="icon" src={neutralFaceIcon} alt="" />
     <span class="text">Bulk Emoji Uploader</span>
   </h4>
   <p class="subheading">
@@ -110,11 +110,13 @@
     Example: <span class="normal">"ditto.gif" will be added as "ditto"</span>
   </p>
   <FileDropzone on:filesadded={handleFilesAdded} />
-  <ul class="uploads">
-    {#each uploads as upload (upload.id)}
-      <Upload {upload} status={uploadsStatusById[upload.id]} />
-    {/each}
-  </ul>
+  {#if uploads?.length}
+    <ul class="uploads">
+      {#each uploads as upload (upload.id)}
+        <Upload {upload} status={uploadsStatusById[upload.id]} />
+      {/each}
+    </ul>
+  {/if}
   <div class="footer">
     <a class="kempf-link" href="https://kempf.dev/#emoji-tools" target="_blank">
       <span>Crafted by</span>
@@ -141,13 +143,22 @@
     border-left: var(--color-neutral-face-emoji-tools) 3px solid;
     box-shadow: var(--dt_static_shadow-md); /* slack css var */
     border-radius: var(--dt_static_radius-base); /* slack css var */
-    margin: 0 0 25px 0;
-    padding: 25px;
+    margin: 0 0 1.5em 0;
+    padding: 1.5em;
     background: white;
     position: relative;
+
+    /* Use flex for spacing needs */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    > * {
+      margin: 0;
+    }
   }
 
-  .icon.heading {
+  .icon {
     margin: 0 5px 0 0;
     height: 1.25em;
     vertical-align: -25%;
