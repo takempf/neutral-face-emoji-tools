@@ -2,6 +2,7 @@ import { defineConfig } from 'wxt';
 
 export default defineConfig({
   manifest: {
+    name: 'Neutral Face Emoji Tools',
     host_permissions: ['*://*.slack.com/*']
   },
   srcDir: 'src',
