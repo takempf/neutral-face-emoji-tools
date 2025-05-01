@@ -1,51 +1,50 @@
 {
   "name": "neutral-face-emoji-tools",
-  "version": "3.3.0",
   "description": "Tools that make life as a Slack emoji addict a little easier.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rollup -c -w",
-    "build": "rollup -c && npm run copy-static",
-    "copy-static": "ncp src/manifest.json dist/manifest.json && ncp src/images/ dist/images"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Fauntleroy/neutral-face-emoji-tools.git"
-  },
+  "private": true,
+  "version": "4.0.0",
+  "type": "module",
   "keywords": [
     "slack",
     "emoji",
     "upload",
     "extension",
-    "chrome"
+    "chrome",
+    "firefox"
   ],
-  "author": "Timothy Kempf <tim@kemp59f.info> (http://kemp59f.info)",
+  "author": "Timothy Kempf <tim@kempf.dev> (https://kempf.dev)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Fauntleroy/neutral-face-emoji-tools/issues"
+    "url": "https://github.com/takempf/neutral-face-emoji-tools/issues"
   },
-  "homepage": "https://github.com/Fauntleroy/neutral-face-emoji-tools#readme",
+  "homepage": "https://github.com/takempf/neutral-face-emoji-tools#readme",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "postinstall": "wxt prepare",
+    "submit:init": "wxt submit init"
+  },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@rollup/plugin-babel": "^5.0.0",
-    "@rollup/plugin-commonjs": "^11.1.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^7.1.3",
-    "mkdirp": "^0.5.1",
-    "ncp": "^2.0.0",
-    "rollup": "^2.8.2",
-    "rollup-plugin-embed-css": "^1.0.16",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-svelte": "^5.2.1",
-    "svelte": "^3.22.2"
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/axios-concurrency": "^1.0.0",
+    "@wxt-dev/auto-icons": "^1.0.2",
+    "@wxt-dev/module-svelte": "^2.0.3",
+    "prettier": "^3.5.3",
+    "svelte": "^5.25.9",
+    "svelte-check": "^4.1.5",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3",
+    "wxt": "^0.20.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "axios-concurrency": "^1.0.3",
-    "file-selector": "^0.1.12",
-    "lodash": "^4.17.15",
-    "uuid": "^2.0.1"
+    "axios": "^1.9.0",
+    "axios-concurrency": "^1.0.4",
+    "file-selector": "^2.1.2",
+    "uuid": "^11.1.0"
   }
 }
