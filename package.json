@@ -26,7 +26,8 @@
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "postinstall": "wxt prepare"
+    "postinstall": "wxt prepare",
+    "submit:init": "wxt submit init"
   },
   "devDependencies": {
     "@tsconfig/svelte": "^5.0.4",

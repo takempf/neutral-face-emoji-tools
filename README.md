@@ -23,19 +23,18 @@ To use this extension, simply navigate to the /customize/emoji page of your Slac
 
 ---
 
-### Developing
+### Building and Contributing
 
 To work on this extension you'll need [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/) installed.
 
-#### Running the extension in dev mode
+The **package.json** file lists the project's dependencies. You'll need to run `npm install` to install those first.
 
-Follow these steps to get your dev workflow in order:
+For development and packaging, the extension **WXT** (https://wxt.dev/).
 
-- Clone this repository
-- Install the dev scripts with `npm install`
-- Run `npm run build` to build the distributable files
-- Go to [chrome://extensions](chrome://extensions) in Google Chrome
-- Click "Load unpacked extension..." (_make sure "Developer Mode" is checked_)
-- Select the `dist/` directory in your Neutral Face Emoji Tools repo
+- `npm run dev` starts up a dev server and a browser to test the extension in. (for Chrome)
+- `npm run build` builds the extension in to a static bundle (for Chrome)
+- `npm run zip` buils the extension, then zips it up (for Chrome)
 
-Once you've done all these things, the extension should appear in your extensions list. If you want to actively work on the extension, run `npm run dev`—this will watch the `src/` directory for changes and update the contents of `dist/` automatically. You will then need to go to the [chrome://extensions/](chrome://extensions) page, manually reload the extension, and refresh the page.
+Each of these commands can also be run for Firefox—`npm run dev:firefox`, `npm run build:firefox`, and `npm run zip:firefox`.
+
+For code style consistency, **Prettier** (https://prettier.io/) is used.
