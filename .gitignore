@@ -38,3 +38,4 @@ dist
 # WXT
 .wxt
 .output
+.env.submit
