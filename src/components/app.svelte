@@ -9,8 +9,8 @@
   import neutralFaceIcon from '@/assets/icon.png';
   import TKSvg from '@/assets/tk.svg';
 
-  let uploads = [];
-  let uploadsStatusById = {};
+  let uploads = $state([]);
+  let uploadsStatusById = $state({});
   let retryQueue = [];
 
   function sleep(ms) {
@@ -90,9 +90,7 @@
     }
   }
 
-  function handleFilesAdded(event) {
-    const files = event.detail;
-
+  function handleFilesAdded(files) {
     uploadFiles(files);
   }
 </script>
@@ -109,7 +107,7 @@
   <p class="input-note">
     Example: <span class="normal">"ditto.gif" will be added as "ditto"</span>
   </p>
-  <FileDropzone on:filesadded={handleFilesAdded} />
+  <FileDropzone onFilesAdded={handleFilesAdded} />
   {#if uploads?.length}
     <ul class="uploads">
       {#each uploads as upload (upload.id)}

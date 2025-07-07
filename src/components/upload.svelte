@@ -1,6 +1,5 @@
 <script>
-  export let upload;
-  export let status;
+  const { upload, status } = $props();
 
   const filePreview = window.URL.createObjectURL(upload.file);
 </script>
