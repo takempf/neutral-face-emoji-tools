@@ -2,7 +2,7 @@
   "name": "neutral-face-emoji-tools",
   "description": "Tools that make life as a Slack emoji addict a little easier.",
   "private": true,
-  "version": "4.0.0",
+  "version": "4.0.1",
   "type": "module",
   "keywords": [
     "slack",
